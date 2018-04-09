@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\setmainfont{CMU Serif}
+
+\title{Отчёт: задача о полёте на максимальную дальность}
+\author{Serge Kozlukov\\ \texttt{newkozlukov [at] gmail [dot] com}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Постановка задачи}
+Рассмотрим летательный аппарт, не имеющий двигателя, управляемый с помощью
+изменения площади несущей поверхности \( S \) и угла атаки \( \alpha \).
+
+Эволюция системы описывается задачей Коши:
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      & m\ddot x_1(t) = - R(t)\cos\theta - Y(t)\sin\theta,\\
+      & m\ddot x_2(t) = - mg - R(t)\sin\theta - Y(t)\cos\theta,\\
+      & x_1(t_0) = x_2(t_0) = 0,\\
+      & \dot x_1(t_0) = |V_0|\cos\theta,\\
+      & \dot x_2(t_0) = |V_0|\sin\theta,
+      \end{aligned}
+  \right.
+\end{equation}
+где
+\[ R(t) = \frac12 \rho V(t)^2 S(t) C_x,\]
+\[ Y(t) = \frac12 \rho V(t)^2 S(t) C_y.\]
+
+Вводя малый параметр
+\[ \varepsilon = \frac{V_0^2}{2mg}, \]
+и понижая степень уравнения, получим систему:
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      ...
+    \end{aligned}
+  \right.
+\end{equation}
+\end{document}
