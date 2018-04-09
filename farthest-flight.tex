@@ -1,18 +1,61 @@
 \documentclass{article}
 
 \usepackage{fontspec}
-\usepackage{polyglossia}
+\usepackage[russian,english]{babel}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{minted}
+\usepackage{filecontents}
+\usepackage{biblatex}
 
 \setmainfont{CMU Serif}
 
 \title{Отчёт: задача о полёте на максимальную дальность}
 \author{Serge Kozlukov\\ \texttt{newkozlukov [at] gmail [dot] com}}
 
+\begin{filecontents}{farthest-flight.bib}
+  @misc{katsaran1,
+    title={Метод малого параметра в задачах оптимального управления},
+    author={Кацаран~Т.~.К.,\ Кабанцова~Л.~Ю.},
+    city={Воронеж},
+    publisher={Издательский дом ``ВГУ''},
+    year=2016,
+    }
+\end{filecontents}
+
+\addbibresource{farthest-flight.bib}
+
 \begin{document}
-\maketitle
+\thispagestyle{empty}
+\begin{center}
+МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ,\\
+ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБРАЗОВАТЕЛЬНОЕ
+УЧЕРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ\\
+``ВОРОНЕЖСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ''\\
+(ФГБОУ ВО ``ВГУ''),\\
+ФАКУЛЬТЕТ ПРИКЛАДНОЙ МАТЕМАТИКИ, ИНФОРМАТИКИ И МЕХАНИКИ,\\
+КАФЕДРА НЕЛИНЕЙНЫХ КОЛЕБАНИЙ
+\end{center}
+\vfill
+\begin{center}
+  \textbf{ОТЧЁТ}\\[1.5cm]
+  по лабораторной работе\\
+  ``Задача о полёте на максимальную дальность''\\
+  по специальности 01.03.02 ``Прикладная Математика, Механика и Информатика''
+\end{center}
+\vfill
+\begin{flushright}
+  Выполнил:\\
+  Студент 4 курса, 6 группы\\
+  Сергей Викторович Козлуков.\\
+  Проверил(а):\\
+  доц. Кацаран Т.~К.
+\end{flushright}
+\begin{center}
+  Воронеж\\2018
+\end{center}
+
+\clearpage
 \tableofcontents
 
 \section{Постановка задачи}
@@ -20,7 +63,7 @@
 изменения площади несущей поверхности \( S \) и угла атаки \( \alpha \).
 Требуется найти управление \(t\mapsto S, \alpha\), максимизирующее дальность полёта.
 
-Эволюция системы описывается задачей Коши:
+Эволюция системы описывается~\cite{katsaran1} задачей Коши:
 \begin{equation}
   \left\{
     \begin{aligned}
@@ -147,5 +190,13 @@ def plot(x, y, legend):
 plot(sol.t, sol.y[2, :], legend='\\dot x over time')
 \end{minted}
 
+\begin{center}
 \includegraphics[width=.6\textwidth]{dotx}
+\end{center}
+
+\section{Заключение}
+В ходе лабораторной работы применили метод малого параметра к задаче полёта на
+максимальную дальность.
+
+\printbibliography[title={Список литературы},heading=bibintoc]
 \end{document}
